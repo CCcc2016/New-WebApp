@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" ng-app='app' ng-controller='AppController'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <!--
+        webApp
+        屏幕适配
+        1.设置视口 meta:vp + tab
+        2.rem 是屏幕布局的一种方式 采用的是根据html的字体大小进行缩放
+        3.flex
+    -->
+    <title ng-bind='appTitle'>首页</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<!--头部导航-->
+<navs is-back='false'></navs>
+
+<!--内容-->
+<div class='content'>
+    <div class="home" ui-view='home' ng-show='id == 0'>
+
+    </div>
+    <div class="author" ui-view='author' ng-show='id == 1'></div>
+    <div class="content" ui-view='content' ng-show='id == 2'></div>
+    <div class="my" ui-view='my' ng-show='id == 3'></div>
+</div>
+
+<!--tab-->
+<tabbar></tabbar>
+<script>
+    // 1.设置html的字体 根据屏幕宽度动态获取
+    /*
+    rem 在HTMl字体的基础上进行缩放
+    iphone6 html 20   p 20
+    * */
+    var fontSize = window.screen.width / 10 + 'px';
+    document.getElementsByTagName('html')[0].style.fontSize = fontSize;
+</script>
+<script src='lib/angular/angular.js'></script>
+<script src='lib/angular-ui-router/release/angular-ui-router.js'></script>
+<script src='js/index.js'></script>
+</body>
+</html>

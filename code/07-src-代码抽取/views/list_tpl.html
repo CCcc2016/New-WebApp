@@ -1,0 +1,35 @@
+<div class='home_list'>
+
+    <div ui-sref='home.detail({id:key})' class='home_content' ng-repeat='(key,value) in homeData.posts'>
+        <!--面板-->
+        <p class='tag' ng-bind='value.column.name' ng-show='value.column.name'>洗洗睡</p>
+        <!--标题-->
+        <h3 ng-bind='value.title'>洗洗睡洗洗睡洗洗睡洗洗睡洗洗睡洗洗睡洗洗睡</h3>
+        <!--
+        三种样式
+        1.只有文字
+        2.有文字有图片
+        3.只有图片
+        -->
+
+        <!--第一种-->
+        <div class="post1" ng-if='value.display_style == 10001'>
+            <p ng-bind='value.abstract'></p>
+        </div>
+
+        <!--第二种样式-->
+        <div class="post2 clearfix" ng-if='value.display_style == 10002'>
+            <p ng-bind='value.abstract'></p>
+            <img src="images/home/post_1.png"  alt="">
+        </div>
+
+        <!--第三种样式-->
+        <div class="post3" ng-if='value.display_style == 10003'>
+            <ul>
+                <li><img src="images/home/post_3.png"  alt=""></li>
+                <li><img src="images/home/post_4.png" alt=""></li>
+                <li><img src="images/home/post_5.png" alt=""></li>
+            </ul>
+        </div>
+    </div>
+</div>
